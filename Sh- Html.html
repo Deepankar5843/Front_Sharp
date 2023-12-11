@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://www.imgonline.com.ua/examples/orange-flowers.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 400px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h3 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .items {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .items li {
+            margin-bottom: 1px;
+            padding: 1px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form action="/submit_form" method="post">
+        <h1>Book a call!</h1>
+        <h3>Have a good day</h3>
+        <label></label>
+
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="callTime">Best Time for Call:</label>
+
+        <input type="date">
+        <input type="time" id="existingTime" name="existingTime" list="timeList">
+
+        <datalist id="timeList">
+            <option value="01:00">
+            <option value="02:00">
+            <option value="03:00">
+            <option value="04:00">
+            <option value="07:00">
+            <option value="08:00">
+
+
+        </datalist>
+
+        <button type="submit" id="submitButton">Get a Call</button>
+        <ul class="items" id="it">
+            <li style="color: green;">HELLO</li>
+            <li style="color: yellow;">Your second item</li>
+            <li>Helllooo</li>
+            <li>Hell</li>
+            <!-- Add more list items if needed -->
+        </ul>
+
+    </form>
+
+
+
+
+    <script src="index.js">
+
+    </script>
+
+</body>
+
+</html>
