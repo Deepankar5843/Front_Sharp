@@ -1,18 +1,18 @@
-// Using querySelector to select the second list item
-var secondItem = document.querySelector('#items li:nth-child(2)');
+// // Using querySelector to select the second list item
+// var secondItem = document.querySelector('#items li:nth-child(2)');
 
 
 
-// Adding a green background color
-secondItem.style.backgroundColor = 'green';
+// // Adding a green background color
+// secondItem.style.backgroundColor = 'green';
 
 
 
-// var items = document.querySelectorAll('#items');
+// // var items = document.querySelectorAll('#items');
 
 
 
-var itemsContainer = document.querySelector('#items');
+// var itemsContainer = document.querySelector('#items');
 
 // create a div
 // var newDiv = document.createElement('div');
@@ -162,11 +162,87 @@ var itemsContainer = document.querySelector('#items');
 
 
 
-var itemInput = document.querySelector('input[type="text"]');
 
-itemInput.addEventListener('keydown', runEvent);
+// var itemInput = document.querySelector('input[type="text"]');
 
-function runEvent(e) {
-    console.log(e.type);
-    document.getElementById('output').innerHTML = '<h3>' + e.target.value + '</h3>';
+// itemInput.addEventListener('keydown', runEvent);
+
+// function runEvent(e) {
+//     console.log(e.type);
+//     document.getElementById('output').innerHTML = '<h3>' + e.target.value + '</h3>';
+// }
+
+
+
+
+
+
+// JAVASCRIPT DOM PART  4       BY      SIR
+
+
+
+
+var filter = document.getElementById('filter');
+var form = document.getElementById('addForm');
+var itemList = document.getElementById('items');
+
+filter.addEventListener('keyup', filtering);
+form.addEventListener('submit', addingElement);
+itemList.addEventListener('click', removeItem);
+
+function addingElement(e) {
+    e.preventDefault();
+    var text = document.getElementById('item').value;
+
+    var li = document.createElement('li');
+    li.className = 'list-group-item';
+
+    li.appendChild(document.createTextNode(text));
+
+    var deleteBtn = document.createElement('button');
+    deleteBtn.className = 'btn btn-danger btn-sm float-right delete';
+
+    deleteBtn.appendChild(document.createTextNode('X'));
+
+    li.appendChild(deleteBtn);
+
+    itemList.appendChild(li);
+}
+
+
+// function removeElement(e) {
+//     if (e.target.classList.contains('delete')) {
+//         if (confirm('Are You Sure?')) {
+//             var li = e.target.parentElement;
+//             itemList.removeChild(li);
+//         }
+//     }
+// }
+
+function removeItem(e) {
+    if (e.target.classList.contains('delete')) {
+        if (confirm('Are You Sure?')) {
+            var li = e.target.parentElement;
+            itemList.removeChild(li);
+        }
+    }
+}
+
+
+
+
+function filtering(e) {
+    var text = e.target.value;
+    text = text.toLowerCase();
+    var itemHead = document.getElementById('items');
+    var itemList = (itemHead.children);
+    Array.from(itemList).forEach(function (e) {
+        var singleList = e.firstChild.textContent.toLowerCase();
+        if (singleList.indexOf(text) != -1) {
+            e.style.display = 'block';
+        }
+        else {
+            e.style.display = "none";
+        }
+    })
 }
